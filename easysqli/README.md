@@ -27,3 +27,8 @@ flag{w0w_f1n4lly_y0u_g0t_th3_fl4g}
 docker-compose build
 docker-compose up -d
 ```
+
+# About
+
+author: Mads
+mail: lxzmads[@]gmail.com
