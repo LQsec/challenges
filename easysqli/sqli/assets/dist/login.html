@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Flag Management System Login</title>
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript">
+        function login(event) {
+            event.preventDefault();
+            var username = event.target.form.username.value;
+            var password = event.target.form.password.value
+            var out = document.getElementById('msg');
+            out.innerText = '';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'login');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    console.log(response);
+                    if (response.result === 1)
+                        location.href="/";
+                    else
+                        out.innerText = 'failed :(';
+                } else {
+                    out.innerText = 'Something Error :(';
+                }
+            };
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(`username=${username}&password=${password}`);
+        }
+
+    </script>
+</head>
+
+<body>
+	<div class="container">
+		<div class='row justify-content-center'>
+            
+			<div class="headmsg">
+                <img src="img/flag.png" style="height: 66%;">
+				<font style="font-size: 300%;">Flag Management System</font>
+			</div>
+		</div>
+		<div class='row justify-content-center'>
+			<div class="loginform">
+				<form action="/" method="post">
+					<input type="text" placeholder="username" name="username" id="username">
+					<input type="password" name="password" id="password" placeholder="password">
+					<input type="button" name="submit" id="submit" onclick="login(event)" value="log in">
+				</form>
+			</div>
+		</div>
+		<div class='row justify-content-center'>
+			<h3>
+				<font color='red' id='msg'></font>
+			</h3>
+		</div>
+	</div>
+</body>
+
+</html>
