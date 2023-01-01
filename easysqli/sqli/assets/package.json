@@ -11,7 +11,7 @@
   "description": "",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "css-loader": "^3.2.0",
+    "css-loader": "^6.7.3",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "express-ws": "^4.0.0",
@@ -26,7 +26,7 @@
     "xterm-addon-fit": "^0.2.1"
   },
   "devDependencies": {
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }
